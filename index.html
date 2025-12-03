@@ -21,18 +21,16 @@
   <title>陳融慶 Rong Cing Chen - 網路暨資安架構師</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    /* 🎨 [視覺優化] 自訂捲軸 */
+    /* 視覺優化 */
     ::-webkit-scrollbar { width: 12px; }
     ::-webkit-scrollbar-track { background: #020617; }
     ::-webkit-scrollbar-thumb { background: #334155; border-radius: 6px; border: 3px solid #020617; }
     ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-    /* 核心基礎 */
     body { 
       font-family: 'Inter', 'Microsoft JhengHei', sans-serif; 
       background-color: #0f172a;
@@ -45,14 +43,12 @@
       -webkit-font-smoothing: antialiased; 
     }
 
-    /* 🎨 [視覺優化] 文字排版系統 */
     .section-title { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.02em; text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); }
     .card-title { font-size: clamp(1.5rem, 4vw, 1.75rem); letter-spacing: -0.01em; line-height: 1.3; }
     .body-text { font-size: clamp(1.125rem, 2.5vw, 1.25rem); font-weight: 400; color: #cbd5e1; }
     .small-text { font-size: clamp(1rem, 2vw, 1.1rem); color: #94a3b8; }
     .tech-font { font-family: 'JetBrains Mono', monospace; }
 
-    /* 卡片互動 */
     .card { 
       background: rgba(30, 41, 59, 0.6); 
       backdrop-filter: blur(16px); 
@@ -78,8 +74,8 @@
   <nav class="fixed top-0 w-full z-50 py-5 px-6">
     <div class="container mx-auto max-w-7xl flex justify-between items-center">
       <a href="#hero" class="font-black tracking-wider text-white text-2xl hover:text-cyan-400 transition-colors">RONG CING CHEN</a>
-      <div class="hidden md:flex gap-10 text-base font-semibold tracking-wide">
-        <a href="#about" class="text-slate-300 hover:text-white transition-colors">關於</a>
+      <div class="hidden md:flex gap-8 text-base font-semibold tracking-wide">
+        <a href="#hero" class="text-slate-300 hover:text-white transition-colors">關於</a>
         <a href="#core-competencies" class="text-slate-300 hover:text-white transition-colors">專長</a>
         <a href="#highlights" class="text-slate-300 hover:text-white transition-colors">實績</a>
         <a href="#experience" class="text-slate-300 hover:text-white transition-colors">經歷</a>
@@ -132,6 +128,40 @@
         </div>
       </div>
     </section>
+
+    <div class="section-divider"></div>
+
+    <section id="core-competencies" class="w-full py-24 px-6 fade-in">
+        <div class="container mx-auto max-w-6xl">
+            <h3 class="section-title font-black mb-6 text-center text-white">四大核心能力</h3>
+            <p class="body-text text-center mb-16">Core Competencies - 建構韌性基礎設施的關鍵專長</p>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="card p-6 rounded-2xl border-t-4 border-blue-500 hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-network-wired text-4xl text-blue-500 mb-4"></i>
+                    <h4 class="text-xl font-bold text-white mb-2">Network</h4>
+                    <p class="text-slate-400 text-sm">城市級骨幹架構、BGP/OSPF、高可用性設計。</p>
+                </div>
+                <div class="card p-6 rounded-2xl border-t-4 border-red-500 hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-shield-alt text-4xl text-red-500 mb-4"></i>
+                    <h4 class="text-xl font-bold text-white mb-2">Security</h4>
+                    <p class="text-slate-400 text-sm">零信任架構、NGFW 叢集、WAF 治理、漏洞管理。</p>
+                </div>
+                <div class="card p-6 rounded-2xl border-t-4 border-emerald-500 hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-cloud text-4xl text-emerald-500 mb-4"></i>
+                    <h4 class="text-xl font-bold text-white mb-2">Cloud</h4>
+                    <p class="text-slate-400 text-sm">AWS/Azure/GCP 混合雲架構、雲端專線互連。</p>
+                </div>
+                <div class="card p-6 rounded-2xl border-t-4 border-violet-500 hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-sync-alt text-4xl text-violet-500 mb-4"></i>
+                    <h4 class="text-xl font-bold text-white mb-2">DR & Ops</h4>
+                    <p class="text-slate-400 text-sm">災難復原演練、自動化運維 (n8n/Docker)。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
 
     <section id="highlights" class="w-full py-24 px-6 fade-in bg-slate-900/50">
         <div class="container mx-auto max-w-7xl">
