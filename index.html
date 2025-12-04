@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- 🛡️ [資安] CSP 安全策略: 限制資源來源，防範 XSS -->
+  <!-- 注意：在某些預覽環境(如iframe)中，過於嚴格的CSP可能會被瀏覽器阻擋，若預覽有問題可暫時註解此行 -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:;">
   
   <!-- 🛡️ [資安] 隱私保護: 測試階段拒絕收錄 (正式求職時建議刪除此行) -->
@@ -23,8 +24,8 @@
 
   <title>陳融慶 Rong Cing Chen - 首席資安架構師</title>
   
-  <!-- 🎨 [視覺] 字體系統 -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <!-- 🎨 [視覺] 字體系統: Inter (現代), JetBrains Mono (代碼), Playfair Display (哲學) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@500&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -41,8 +42,8 @@
       font-family: 'Inter', 'Microsoft JhengHei', sans-serif; 
       background-color: #0f172a;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%), 
-        radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.08) 0px, transparent 50%), 
+        radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%);
       color: #f8fafc; 
       line-height: 1.7; 
       overflow-x: hidden; 
@@ -55,6 +56,7 @@
     .body-text { font-size: clamp(1.05rem, 2.5vw, 1.15rem); font-weight: 400; color: #cbd5e1; }
     .small-text { font-size: clamp(0.9rem, 2vw, 1rem); color: #94a3b8; }
     .tech-font { font-family: 'JetBrains Mono', monospace; }
+    .philosophy-font { font-family: 'Playfair Display', serif; }
 
     /* 卡片與互動 */
     .card { 
@@ -74,75 +76,119 @@
     .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
     
-    nav { backdrop-filter: blur(20px); background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+    nav { backdrop-filter: blur(20px); background: rgba(15, 23, 42, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
   </style>
 </head>
 <body class="antialiased">
   
   <nav class="fixed top-0 w-full z-50 py-5 px-6">
     <div class="container mx-auto max-w-7xl flex justify-between items-center">
-      <a href="#hero" class="font-black tracking-wider text-white text-2xl hover:text-cyan-400 transition-colors">RONG CING CHEN</a>
-      <div class="hidden md:flex gap-8 text-base font-semibold tracking-wide">
+      <a href="#hero" class="font-black tracking-wider text-white text-xl md:text-2xl hover:text-cyan-400 transition-colors">RONG CING CHEN</a>
+      <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide">
         <!-- 導覽連結 -->
-        <a href="#hero" class="text-slate-300 hover:text-white transition-colors">關於</a>
-        <a href="#core-competencies" class="text-slate-300 hover:text-white transition-colors">專長</a>
-        <a href="#highlights" class="text-slate-300 hover:text-white transition-colors">實績</a>
-        <a href="#experience" class="text-slate-300 hover:text-white transition-colors">經歷</a>
-        <a href="#skills" class="text-slate-300 hover:text-white transition-colors">技能</a>
-        <a href="#contact" class="px-5 py-2 rounded-full bg-cyan-900/30 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500 hover:text-white transition-all">聯繫</a>
+        <a href="#hero" class="text-slate-400 hover:text-white transition-colors">關於</a>
+        <a href="#core-competencies" class="text-slate-400 hover:text-white transition-colors">專長</a>
+        <a href="#highlights" class="text-slate-400 hover:text-white transition-colors">實績</a>
+        <a href="#experience" class="text-slate-400 hover:text-white transition-colors">經歷</a>
+        <a href="#skills" class="text-slate-400 hover:text-white transition-colors">技能</a>
+        <a href="#contact" class="px-5 py-2 rounded-full bg-slate-800 text-cyan-400 border border-slate-700 hover:bg-cyan-500 hover:text-white hover:border-cyan-500 transition-all">聯繫</a>
       </div>
     </div>
   </nav>
 
   <main class="w-full min-h-full">
-    <!-- 1. 首頁 Hero -->
-    <section id="hero" class="w-full min-h-screen flex flex-col justify-center items-center py-32 px-6 relative overflow-hidden">
-      <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+    <!-- 1. 首頁 Hero (優化版：更乾淨、更少雜訊) -->
+    <section id="hero" class="w-full min-h-screen flex flex-col justify-center items-center pt-20 pb-32 px-6 relative overflow-hidden">
+      <!-- Background noise (更淡) -->
+      <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
       
-      <div class="container mx-auto max-w-5xl relative z-10 text-center">
-        <div class="mb-10 flex justify-center animate-[pulse_4s_ease-in-out_infinite]">
-           <div class="relative w-40 h-40">
-             <svg viewBox="0 0 120 120" class="w-full h-full drop-shadow-[0_0_40px_rgba(103,232,249,0.5)]">
-               <circle cx="60" cy="60" r="58" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.6"><animate attributeName="r" values="58;60;58" dur="4s" repeatCount="indefinite"/></circle>
-               <path d="M60 15 L90 30 L90 60 Q90 90 60 105 Q30 90 30 60 L30 30 Z" fill="rgba(34, 211, 238, 0.1)" stroke="#67e8f9" stroke-width="2"/>
-               <path d="M45 60 L55 70 L75 50" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <div class="container mx-auto max-w-4xl relative z-10 text-center">
+        <!-- 簡化的裝飾元素：盾牌與網絡資安動畫 -->
+        <div class="mb-12 flex justify-center opacity-90">
+           <div class="relative w-28 h-28 md:w-36 md:h-36">
+             <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[0_0_30px_rgba(103,232,249,0.4)]">
+               <defs>
+                 <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                   <stop offset="0%" stop-color="#0f172a" stop-opacity="0.8" />
+                   <stop offset="100%" stop-color="#1e293b" stop-opacity="0.9" />
+                 </linearGradient>
+                 <clipPath id="shieldClip">
+                    <path d="M50 10 L85 25 L85 55 Q85 85 50 95 Q15 85 15 55 L15 25 Z" />
+                 </clipPath>
+               </defs>
+
+               <!-- Shield Background -->
+               <path d="M50 10 L85 25 L85 55 Q85 85 50 95 Q15 85 15 55 L15 25 Z" 
+                     fill="url(#shieldGrad)" stroke="#334155" stroke-width="1.5" />
+
+               <!-- Network Nodes & Links (Inside Shield) -->
+               <g clip-path="url(#shieldClip)">
+                  <!-- Links -->
+                  <g stroke="#22d3ee" stroke-width="0.5" opacity="0.3">
+                    <line x1="50" y1="35" x2="30" y2="55"><animate attributeName="stroke-opacity" values="0.1;0.5;0.1" dur="3s" repeatCount="indefinite"/></line>
+                    <line x1="50" y1="35" x2="70" y2="55"><animate attributeName="stroke-opacity" values="0.1;0.5;0.1" dur="3s" begin="1s" repeatCount="indefinite"/></line>
+                    <line x1="30" y1="55" x2="50" y2="75"><animate attributeName="stroke-opacity" values="0.1;0.5;0.1" dur="3s" begin="0.5s" repeatCount="indefinite"/></line>
+                    <line x1="70" y1="55" x2="50" y2="75"><animate attributeName="stroke-opacity" values="0.1;0.5;0.1" dur="3s" begin="1.5s" repeatCount="indefinite"/></line>
+                    <line x1="30" y1="55" x2="70" y2="55" />
+                    <line x1="50" y1="35" x2="50" y2="75" stroke-dasharray="2 2" />
+                  </g>
+                  
+                  <!-- Nodes -->
+                  <g fill="#22d3ee">
+                    <circle cx="50" cy="35" r="2.5"><animate attributeName="r" values="2.5;3.5;2.5" dur="2s" repeatCount="indefinite" /></circle>
+                    <circle cx="30" cy="55" r="2"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" begin="0.3s" repeatCount="indefinite" /></circle>
+                    <circle cx="70" cy="55" r="2"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" begin="0.6s" repeatCount="indefinite" /></circle>
+                    <circle cx="50" cy="75" r="2"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" begin="0.9s" repeatCount="indefinite" /></circle>
+                  </g>
+               </g>
+
+               <!-- Shield Glowing Border (Scanning effect) -->
+               <path d="M50 10 L85 25 L85 55 Q85 85 50 95 Q15 85 15 55 L15 25 Z" 
+                     fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                     stroke-dasharray="300" stroke-dashoffset="300">
+                     <animate attributeName="stroke-dashoffset" values="300;0;300" dur="8s" ease="ease-in-out" repeatCount="indefinite" />
+               </path>
              </svg>
            </div>
         </div>
         
-        <div class="mb-10">
-          <h1 class="font-black mb-4 text-white text-[clamp(3.5rem,9vw,6.5rem)] leading-none tracking-tight drop-shadow-2xl">
+        <div class="mb-12">
+          <h1 class="font-black mb-2 text-white text-[clamp(3rem,8vw,5.5rem)] leading-none tracking-tight">
             陳融慶
           </h1>
-          <h2 class="font-bold mb-8 text-slate-400 text-[clamp(1.5rem,4vw,2.5rem)] tracking-[0.25em] tech-font">
-            RONG CING CHEN
+          <h2 class="font-medium mb-8 text-slate-500 text-[clamp(1rem,3vw,1.5rem)] tracking-[0.4em] tech-font uppercase">
+            Rong Cing Chen
           </h2>
-          <div class="inline-block px-8 py-3 rounded-full border border-cyan-500/40 bg-cyan-900/20 backdrop-blur-md mb-8">
-            <span class="font-bold text-cyan-300 text-lg md:text-xl">基礎設施與資安融合策略首席架構師</span>
-          </div>
-          <p class="text-slate-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-light">
-            定義與實施高韌性 (Resilience) 基礎設施戰略，<br class="hidden md:block">將資安防禦轉化為可量化的商業價值與流程卓越。
+          
+          <!-- 職稱：移除框線，改為簡潔文字 -->
+          <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400 mb-8">
+            基礎設施與資安融合策略首席架構師
+          </h3>
+          
+          <p class="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed font-light mb-10">
+            定義高韌性 (Resilience) 基礎設施戰略，<br class="hidden md:block">
+            將資安防禦轉化為可量化的商業價值。
           </p>
         </div>
         
-        <div class="flex justify-center gap-4 mb-12 flex-wrap">
-           <span class="px-5 py-3 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-200 text-sm md:text-base font-semibold shadow-lg"><i class="fas fa-server mr-2 text-cyan-300"></i>14+ 年 Tier-1 關鍵設施戰略運維</span>
-           <span class="px-5 py-3 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-200 text-sm md:text-base font-semibold shadow-lg"><i class="fas fa-shield-alt mr-2 text-cyan-300"></i>Zero Trust 架構設計</span>
-           <span class="px-5 py-3 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-200 text-sm md:text-base font-semibold shadow-lg"><i class="fas fa-user-tie mr-2 text-amber-300"></i>核心專案技術決策顧問</span>
+        <!-- 亮點：改為乾淨的列表，移除厚重方塊 -->
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-16 text-slate-400 text-sm md:text-base font-medium tracking-wide">
+            <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fas fa-server text-cyan-500/80"></i> 14+ 年關鍵設施運維</span>
+            <span class="hidden md:block text-slate-700">•</span>
+            <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fas fa-shield-alt text-cyan-500/80"></i> Zero Trust 戰略</span>
+            <span class="hidden md:block text-slate-700">•</span>
+            <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fas fa-user-tie text-cyan-500/80"></i> 技術決策顧問</span>
         </div>
         
         <div class="flex justify-center gap-6">
-          <a href="#contact" class="btn-glow inline-flex items-center gap-3 font-bold py-4 px-12 rounded-xl text-lg text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 transition-all transform hover:-translate-y-1 shadow-xl">
-            <i class="fas fa-paper-plane"></i> <span>立即聯繫</span>
-          </a>
-          <a href="#highlights" class="inline-flex items-center gap-3 font-bold py-4 px-12 rounded-xl text-lg text-slate-200 border-2 border-slate-600 hover:bg-slate-800 hover:text-white hover:border-slate-500 transition-all">
-            <i class="fas fa-chevron-down"></i> <span>查看實績</span>
+          <a href="#contact" class="btn-glow inline-flex items-center gap-3 font-semibold py-3.5 px-10 rounded-full text-base text-white bg-slate-800 border border-slate-600 hover:bg-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition-all">
+            <span>立即聯繫</span> <i class="fas fa-arrow-right text-sm"></i>
           </a>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
 
     <!-- 2. 核心專長 Core Competencies -->
     <section id="core-competencies" class="w-full py-24 px-6 fade-in">
@@ -167,7 +213,7 @@
                 <div class="card p-6 rounded-2xl border-t-4 border-emerald-500 hover:-translate-y-2 transition-transform">
                     <i class="fas fa-cloud text-4xl text-emerald-500 mb-4"></i>
                     <h4 class="text-xl font-bold text-white mb-2">雲地融合策略</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed">主導 AWS/Azure/GCP 混合雲架構、地端 DNS 遷移與關鍵雲地介接網路政策。</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">主導 Azure BGP 全備援架構規劃，以及 GCP 地端移轉雲專案與關鍵雲地介接政策。</p>
                 </div>
                 <!-- Process -->
                 <div class="card p-6 rounded-2xl border-t-4 border-violet-500 hover:-translate-y-2 transition-transform">
@@ -179,9 +225,43 @@
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
 
-    <!-- 3. 實績 Highlights (全新文案) -->
+    <!-- ✅ 架構哲學 (Philosophy) -->
+    <section id="philosophy" class="w-full py-20 px-6 fade-in relative overflow-hidden">
+        <div class="absolute inset-0 bg-slate-900/50 -skew-y-2 transform origin-top-left scale-110 -z-10"></div>
+        <div class="container mx-auto max-w-4xl text-center">
+            <h3 class="font-black text-slate-500 tracking-[0.3em] text-sm mb-8 uppercase">Architecture Philosophy</h3>
+            <div class="relative inline-block mb-10">
+                <i class="fas fa-quote-left absolute -top-8 -left-12 text-4xl text-slate-700 opacity-50"></i>
+                <h2 class="philosophy-font text-4xl md:text-5xl text-white italic leading-tight">
+                    "技術的終極目標，<br class="md:hidden">是建立<span class="text-cyan-300">秩序</span>。"
+                </h2>
+                <i class="fas fa-quote-right absolute -bottom-8 -right-12 text-4xl text-slate-700 opacity-50"></i>
+            </div>
+            <div class="max-w-2xl mx-auto space-y-6 text-lg md:text-xl font-light leading-relaxed text-slate-300">
+                <p>
+                    在這個充滿熵增 (Entropy) 與不確定性的數位戰場，我始終堅信：<br>
+                    優秀的架構師不只解決今天的故障，更致力於預判明天的風險。
+                </p>
+                <p>
+                    我追求的不僅是 <span class="text-white font-medium">防禦</span>，而是 <span class="text-cyan-300 font-medium">韌性 (Resilience)</span>；<br>
+                    不僅是 <span class="text-white font-medium">維運</span>，而是 <span class="text-cyan-300 font-medium">進化</span>。
+                </p>
+                <p class="border-t border-slate-700/50 pt-6 mt-6">
+                    透過標準化與自動化，將混亂轉化為可控的流程，<br>
+                    讓團隊從重複勞動中釋放，專注於創造真正的價值。
+                </p>
+            </div>
+            <div class="mt-10 text-slate-500 philosophy-font text-xl italic">
+                —— Rong Cing Chen
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
+
+    <!-- 3. 實績 Highlights -->
     <section id="highlights" class="w-full py-24 px-6 fade-in bg-slate-900/50">
         <div class="container mx-auto max-w-7xl">
             <div class="text-center mb-20">
@@ -253,7 +333,7 @@
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
 
     <!-- 4. 經歷 Experience -->
     <section id="experience" class="w-full py-24 px-6 fade-in">
@@ -274,7 +354,7 @@
                         <ul class="list-disc list-outside ml-6 space-y-4 body-text text-slate-300">
                             <li>
                                 <strong>擔任核心技術顧問與策略夥伴：</strong>
-                                <br>作為客戶最高層級信任的技術顧問，直接參與所有關鍵專案的策略與決策會議。全權負責網路與資安架構規劃，並領導跨職能團隊。
+                                <br>作為客戶最高層級信任的技術顧問，直接參與所有關鍵專案的策略與決策會議。全權負責網路與資安架構規劃，<span class="text-cyan-300 font-bold">領導並賦能 (Empower) 跨職能團隊</span>，建立技術分享文化與標準化作業體系。
                             </li>
                             <li>
                                 <strong>異質核心交換遷移：</strong>
@@ -303,7 +383,7 @@
                         <p class="text-slate-400 font-semibold text-lg mb-6">延宇資訊 ｜ 駐點中央部會</p>
                         <ul class="list-disc list-outside ml-6 space-y-3 body-text text-slate-400">
                             <li><strong>ISMS 合規導入：</strong>獨立主導「通訊安全維護計畫」並獲資安長核定，<span class="text-amber-300 font-bold">建立組織合規基石</span>。</li>
-                            <li><strong>全台維運：</strong>負責 <span class="text-cyan-300 font-bold">全台六個分支機構之 IT 架構維運</span>（VMware, Fortinet）。</li>
+                            <li><strong>全台維運：</strong>負責 <span class="text-cyan-300 font-bold">總部及全台六個分支機構之 IT 架構維運</span>（VMware, Fortinet）。</li>
                             <li><strong>漏洞管理：</strong>建立週期性弱點掃描與修補機制。</li>
                         </ul>
                     </div>
@@ -330,7 +410,9 @@
         </div>
     </section>
 
-    <!-- 5. 技能與證照 (Updated with new tools) -->
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
+
+    <!-- 5. 技能與證照 (Updated) -->
     <section id="skills" class="w-full py-24 px-6 fade-in bg-slate-900/30">
         <div class="container mx-auto max-w-7xl">
             <h3 class="section-title font-black mb-16 text-center text-white">技術堆疊與認證</h3>
@@ -345,7 +427,7 @@
                         <h5 class="text-white font-bold text-lg mb-2 border-b border-slate-700 pb-2">網路架構與控制</h5>
                         <p class="body-text text-base">Cisco, Extreme, Aruba (Wireless & Switch), Dell/HP, BGP/OSPF, EIGRP, HSRP, GLBP, Route-map, Q-in-Q</p>
                     </div>
-                    <!-- Security (Updated: Darktrace, Xensor) -->
+                    <!-- Security (Restored: Flowmon) -->
                     <div class="space-y-2">
                         <h5 class="text-white font-bold text-lg mb-2 border-b border-slate-700 pb-2">資安防護與治理</h5>
                         <p class="body-text text-base">Fortinet, Palo Alto Networks, Darktrace, Xensor, Flowmon, WAF Governance</p>
@@ -355,10 +437,10 @@
                         <h5 class="text-white font-bold text-lg mb-2 border-b border-slate-700 pb-2">自動化與 DevOps</h5>
                         <p class="body-text text-base">Python Automation, n8n Workflow, Docker</p>
                     </div>
-                    <!-- System (Updated: Nessus Pro, Acunetix, VirusTotal) -->
+                    <!-- System (Restored: ManageEngine, Qualys) -->
                     <div class="space-y-2">
                         <h5 class="text-white font-bold text-lg mb-2 border-b border-slate-700 pb-2">系統與診斷</h5>
-                        <p class="body-text text-base">Linux (RHEL), Wireshark, ManageEngine NetFlow, Nmap, OpenSSL, Qualys SSL Labs, Nessus Professional, Acunetix, VirusTotal, VMware</p>
+                        <p class="body-text text-base">Linux (RHEL), Wireshark, ManageEngine NetFlow, Nmap, OpenSSL, Qualys SSL Labs, VMware, Nessus Professional, Acunetix, VirusTotal</p>
                     </div>
                 </div>
             </div>
@@ -413,36 +495,40 @@
     <!-- 7. 聯繫 Contact -->
     <section id="contact" class="w-full py-32 px-6 fade-in text-center">
        <div class="container mx-auto max-w-4xl">
-          <h3 class="font-black mb-8 text-white text-4xl md:text-5xl">期待與您對話</h3>
-          <p class="body-text text-lg md:text-xl mb-12 leading-relaxed">
+         <h3 class="font-black mb-8 text-white text-4xl md:text-5xl">期待與您對話</h3>
+         <p class="body-text text-lg md:text-xl mb-12 leading-relaxed">
              科技日新月異，我始終保持學習的熱情。<br class="hidden md:block">
              希望能有機會與您交流 <span class="text-white font-bold">網路架構</span> 與 <span class="text-white font-bold">資安防禦</span> 的實務心得，<br class="hidden md:block">
              或探討任何潛在的合作可能。
-          </p>
-          <div class="flex justify-center gap-8">
+         </p>
+         <div class="flex justify-center gap-8 flex-wrap">
              <a href="mailto:louis@rongcingchen.com" class="btn-glow inline-flex items-center gap-4 font-bold py-5 px-12 rounded-2xl text-xl text-white bg-gradient-to-r from-blue-600 to-cyan-600 transform hover:scale-105 transition-all shadow-2xl">
                  <i class="fas fa-envelope"></i> <span>發送郵件</span>
              </a>
              <a href="https://www.linkedin.com/in/rongcing-chen" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-4 font-bold py-5 px-12 rounded-2xl text-xl text-slate-200 border-2 border-slate-600 hover:bg-slate-800 hover:text-white hover:border-slate-400 transition-all">
                  <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
              </a>
-          </div>
-          <!-- 📩 Email 文字顯性化 (方便複製) -->
-          <p class="mt-6 text-slate-400 font-mono text-lg tracking-wide hover:text-cyan-300 transition-colors cursor-pointer" onclick="navigator.clipboard.writeText('louis@rongcingchen.com'); alert('Email 已複製！');">
+         </div>
+         <!-- 📩 Email 文字顯性化 (方便複製) -->
+         <p class="mt-6 text-slate-400 font-mono text-lg tracking-wide hover:text-cyan-300 transition-colors cursor-pointer" onclick="document.execCommand('copy'); alert('Email 已複製！(如果無效請手動複製)');">
              louis@rongcingchen.com <i class="far fa-copy ml-2 text-sm"></i>
-          </p>
-          
-          <p class="mt-16 text-slate-600 text-sm tech-font">
+         </p>
+         
+         <p class="mt-16 text-slate-600 text-sm tech-font">
              SECURE CONNECTION ESTABLISHED • TLS 1.3 • AES_256_GCM
-          </p>
+         </p>
        </div>
     </section>
   </main>
 
   <footer class="w-full py-10 text-center border-t border-slate-800 bg-slate-950">
     <div class="container mx-auto px-4">
+      <!-- 職涯金句 (Footer 區塊新增) -->
+      <p class="text-slate-300 text-lg mb-4 philosophy-font italic">
+        "職涯如馬拉松，韌性成就價值。不是先變強才開始，而是開始後才會變強。"
+      </p>
       <p class="text-slate-400 text-base mb-2 font-medium">© <span id="year"></span> 陳融慶 RONG CING CHEN.</p>
-      <p class="text-slate-600 text-sm">All systems operational. Data sanitized for public view.</p>
+      <p class="text-slate-600 text-sm">Built with precision & resilience.</p>
     </div>
   </footer>
 
