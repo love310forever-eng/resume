@@ -4,40 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- 🛡️ [資安] CSP 安全策略: 限制資源來源，防範 XSS -->
-  <!-- 注意：在某些預覽環境(如iframe)中，過於嚴格的CSP可能會被瀏覽器阻擋，若預覽有問題可暫時註解此行 -->
+  <!-- 🛡️ [資安] CSP 安全策略 -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:;">
   
-  <!-- 🛡️ [資安] 隱私保護: 測試階段拒絕收錄 (正式求職時建議刪除此行) -->
+  <!-- 🛡️ [資安] 隱私保護: 測試階段拒絕收錄 -->
   <meta name="robots" content="noindex, nofollow">
 
-  <!-- 🌐 [SEO & Social] Open Graph 社交預覽設定 -->
+  <!-- 🌐 [SEO & Social] -->
   <meta property="og:title" content="陳融慶 - 基礎設施與資安融合策略首席架構師">
   <meta property="og:description" content="14年Tier-1關鍵設施戰略運維經驗，定義與實施高韌性基礎設施戰略。">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://rongcingchen.com">
-  <meta property="og:image" content="https://rongcingchen.com/og-image.jpg">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
+  
   <title>陳融慶 Rong Cing Chen - 首席資安架構師</title>
   
-  <!-- 🎨 [視覺] 字體系統: Inter (現代), JetBrains Mono (代碼), Playfair Display (哲學) -->
+  <!-- 字體系統 -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@500&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    /* 視覺優化: 深色捲軸 */
+    /* 深色捲軸 */
     ::-webkit-scrollbar { width: 12px; }
     ::-webkit-scrollbar-track { background: #020617; }
     ::-webkit-scrollbar-thumb { background: #334155; border-radius: 6px; border: 3px solid #020617; }
     ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-    /* 核心基礎樣式 */
+    /* 基礎樣式 */
     body { 
       font-family: 'Inter', 'Microsoft JhengHei', sans-serif; 
       background-color: #0f172a;
@@ -47,18 +42,16 @@
       color: #f8fafc; 
       line-height: 1.7; 
       overflow-x: hidden; 
-      -webkit-font-smoothing: antialiased; 
     }
 
-    /* 文字排版系統 */
+    /* 文字排版 */
     .section-title { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.02em; text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); }
     .card-title { font-size: clamp(1.25rem, 4vw, 1.5rem); letter-spacing: -0.01em; line-height: 1.4; }
     .body-text { font-size: clamp(1.05rem, 2.5vw, 1.15rem); font-weight: 400; color: #cbd5e1; }
-    .small-text { font-size: clamp(0.9rem, 2vw, 1rem); color: #94a3b8; }
     .tech-font { font-family: 'JetBrains Mono', monospace; }
     .philosophy-font { font-family: 'Playfair Display', serif; }
 
-    /* 卡片與互動 */
+    /* 卡片特效 */
     .card { 
       background: rgba(30, 41, 59, 0.6); 
       backdrop-filter: blur(16px); 
@@ -85,7 +78,6 @@
     <div class="container mx-auto max-w-7xl flex justify-between items-center">
       <a href="#hero" class="font-black tracking-wider text-white text-xl md:text-2xl hover:text-cyan-400 transition-colors">RONG CING CHEN</a>
       <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide">
-        <!-- 導覽連結 -->
         <a href="#hero" class="text-slate-400 hover:text-white transition-colors">關於</a>
         <a href="#core-competencies" class="text-slate-400 hover:text-white transition-colors">專長</a>
         <a href="#highlights" class="text-slate-400 hover:text-white transition-colors">實績</a>
@@ -97,13 +89,13 @@
   </nav>
 
   <main class="w-full min-h-full">
-    <!-- 1. 首頁 Hero (優化版：更乾淨、更少雜訊) -->
+    <!-- 1. 首頁 Hero -->
     <section id="hero" class="w-full min-h-screen flex flex-col justify-center items-center pt-20 pb-32 px-6 relative overflow-hidden">
-      <!-- Background noise (更淡) -->
+      <!-- Background noise -->
       <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
       
       <div class="container mx-auto max-w-4xl relative z-10 text-center">
-        <!-- 簡化的裝飾元素：盾牌與網絡資安動畫 -->
+        <!-- 盾牌與網絡資安動畫 -->
         <div class="mb-12 flex justify-center opacity-90">
            <div class="relative w-28 h-28 md:w-36 md:h-36">
              <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[0_0_30px_rgba(103,232,249,0.4)]">
@@ -123,7 +115,6 @@
 
                <!-- Network Nodes & Links (Inside Shield) -->
                <g clip-path="url(#shieldClip)">
-                  <!-- Links -->
                   <g stroke="#22d3ee" stroke-width="0.5" opacity="0.3">
                     <line x1="50" y1="35" x2="30" y2="55"><animate attributeName="stroke-opacity" values="0.1;0.5;0.1" dur="3s" repeatCount="indefinite"/></line>
                     <line x1="50" y1="35" x2="70" y2="55"><animate attributeName="stroke-opacity" values="0.1;0.5;0.1" dur="3s" begin="1s" repeatCount="indefinite"/></line>
@@ -132,8 +123,6 @@
                     <line x1="30" y1="55" x2="70" y2="55" />
                     <line x1="50" y1="35" x2="50" y2="75" stroke-dasharray="2 2" />
                   </g>
-                  
-                  <!-- Nodes -->
                   <g fill="#22d3ee">
                     <circle cx="50" cy="35" r="2.5"><animate attributeName="r" values="2.5;3.5;2.5" dur="2s" repeatCount="indefinite" /></circle>
                     <circle cx="30" cy="55" r="2"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" begin="0.3s" repeatCount="indefinite" /></circle>
@@ -142,7 +131,7 @@
                   </g>
                </g>
 
-               <!-- Shield Glowing Border (Scanning effect) -->
+               <!-- Shield Glowing Border -->
                <path d="M50 10 L85 25 L85 55 Q85 85 50 95 Q15 85 15 55 L15 25 Z" 
                      fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
                      stroke-dasharray="300" stroke-dashoffset="300">
@@ -160,7 +149,6 @@
             Rong Cing Chen
           </h2>
           
-          <!-- 職稱：移除框線，改為簡潔文字 -->
           <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400 mb-8">
             基礎設施與資安融合策略首席架構師
           </h3>
@@ -171,7 +159,6 @@
           </p>
         </div>
         
-        <!-- 亮點：改為乾淨的列表，移除厚重方塊 -->
         <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-16 text-slate-400 text-sm md:text-base font-medium tracking-wide">
             <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fas fa-server text-cyan-500/80"></i> 14+ 年關鍵設施運維</span>
             <span class="hidden md:block text-slate-700">•</span>
@@ -227,7 +214,7 @@
 
     <div class="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
 
-    <!-- ✅ 架構哲學 (Philosophy) -->
+    <!-- 架構哲學 -->
     <section id="philosophy" class="w-full py-20 px-6 fade-in relative overflow-hidden">
         <div class="absolute inset-0 bg-slate-900/50 -skew-y-2 transform origin-top-left scale-110 -z-10"></div>
         <div class="container mx-auto max-w-4xl text-center">
@@ -340,13 +327,12 @@
         <div class="container mx-auto max-w-5xl">
             <h3 class="section-title font-black mb-12 text-center text-white">職涯發展軌跡</h3>
             
-            <!-- ✨ 新增：職涯進化圖表與榮譽亮點 -->
+            <!-- ✨ 職涯進化圖表與榮譽亮點 -->
             <div class="mb-20">
                 <!-- Evolution Chart -->
                 <div class="grid md:grid-cols-3 gap-6 relative mb-8">
                     <!-- Step 1 -->
                     <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 relative group hover:bg-slate-800 transition-colors">
-                        <!-- Arrow for desktop -->
                         <div class="absolute -right-4 top-1/2 -translate-y-1/2 hidden md:block z-10 text-slate-600">
                            <i class="fas fa-chevron-right text-xl"></i>
                         </div>
@@ -362,7 +348,6 @@
 
                     <!-- Step 2 -->
                     <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 relative group hover:bg-slate-800 transition-colors">
-                        <!-- Arrow for desktop -->
                         <div class="absolute -right-4 top-1/2 -translate-y-1/2 hidden md:block z-10 text-slate-600">
                            <i class="fas fa-chevron-right text-xl"></i>
                         </div>
@@ -407,7 +392,7 @@
 
             <div class="relative border-l-4 border-slate-800 ml-6 md:ml-12 space-y-16">
                 
-                <!-- Job 1 (Updated) -->
+                <!-- Job 1 -->
                 <div class="relative pl-10 md:pl-16">
                     <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-blue-500 ring-8 ring-slate-900 shadow-[0_0_20px_#3b82f6]"></div>
                     <div class="card p-8 rounded-[1.5rem]">
@@ -472,28 +457,53 @@
                     </div>
                 </div>
 
+                <!-- Job 4 (New Added) -->
+                <div class="relative pl-10 md:pl-16">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-slate-600 ring-8 ring-slate-900"></div>
+                    <div class="card p-8 rounded-[1.5rem] opacity-90 hover:opacity-100 transition-opacity">
+                        <div class="flex justify-between items-start flex-wrap gap-4 mb-4">
+                            <h4 class="text-xl font-bold text-slate-200">助理網路工程師</h4>
+                            <span class="tech-font text-sm bg-slate-800 text-slate-400 px-3 py-1 rounded-md border border-slate-700">2010 - 2016</span>
+                        </div>
+                        <p class="text-slate-400 font-semibold text-lg mb-6">朝陽科技大學 - 圖書資訊處 (原電算中心)</p>
+                        <ul class="list-disc list-outside ml-6 space-y-3 body-text text-slate-400">
+                            <li>
+                                <strong>核心技術奠基：</strong>
+                                <br>維護全校骨幹網路 (Cisco Catalyst 6500)，服務超過 1.2 萬名師生。協助執行 OSPF 動態路由與 LACP 鏈路聚合設定，建立對 <span class="text-blue-300 font-bold">OSI 物理層</span> 與終端問題的敏銳直覺。
+                            </li>
+                            <li>
+                                <strong>跨域整合 (Cross-Disciplinary)：</strong>
+                                <br>發揮工業設計背景專長，配合組織合併，運用 AutoCAD 精確繪製新機房平面圖與空調動線規劃，確保機房環境韌性。
+                            </li>
+                            <li>
+                                <strong>嚴謹維運養成：</strong>
+                                <br>於職涯早期即建立「操作前離線驗證」與「撰寫 MOP」之標準化習慣，並善用 Log 快速定位資安異常。
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <div class="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
 
-    <!-- 5. 技能與證照 (Updated) -->
+    <!-- 5. 技能與證照 -->
     <section id="skills" class="w-full py-24 px-6 fade-in bg-slate-900/30">
         <div class="container mx-auto max-w-7xl">
             <h3 class="section-title font-black mb-16 text-center text-white">技術堆疊與認證</h3>
             
-            <!-- Stack List -->
             <div class="card p-12 rounded-[2rem] border-2 border-slate-800/50 mb-20">
                 <p class="text-lg font-bold text-blue-400 mb-10 tracking-[0.2em] text-center">INFRASTRUCTURE STACK</p>
                 
                 <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
-                    <!-- Network (Updated with Aruba Switch) -->
+                    <!-- Network -->
                     <div class="space-y-2">
                         <h5 class="text-white font-bold text-lg mb-2 border-b border-slate-700 pb-2">網路架構與控制</h5>
                         <p class="body-text text-base">Cisco, Extreme, Aruba (Wireless & Switch), Dell/HP, BGP/OSPF, EIGRP, HSRP, GLBP, Route-map, Q-in-Q</p>
                     </div>
-                    <!-- Security (Restored: Flowmon) -->
+                    <!-- Security -->
                     <div class="space-y-2">
                         <h5 class="text-white font-bold text-lg mb-2 border-b border-slate-700 pb-2">資安防護與治理</h5>
                         <p class="body-text text-base">Fortinet, Palo Alto Networks, Darktrace, Xensor, Flowmon, WAF Governance</p>
@@ -503,7 +513,7 @@
                         <h5 class="text-white font-bold text-lg mb-2 border-b border-slate-700 pb-2">自動化與 DevOps</h5>
                         <p class="body-text text-base">Python Automation, n8n Workflow, Docker</p>
                     </div>
-                    <!-- System (Restored: ManageEngine, Qualys) -->
+                    <!-- System -->
                     <div class="space-y-2">
                         <h5 class="text-white font-bold text-lg mb-2 border-b border-slate-700 pb-2">系統與診斷</h5>
                         <p class="body-text text-base">Linux (RHEL), Wireshark, ManageEngine NetFlow, Nmap, OpenSSL, Qualys SSL Labs, VMware, Nessus Professional, Acunetix, VirusTotal</p>
