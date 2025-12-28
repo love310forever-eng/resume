@@ -80,13 +80,12 @@
       padding: 1rem 0 1rem 2.5rem;
     }
 
-    /* 🛡️ 防止關鍵詞中斷排版 (Keep Together) */
     .keep-together {
       display: inline-block;
       white-space: nowrap;
     }
 
-    /* 🏆 榮耀獎章動效 */
+    /* 🏆 榮耀獎章動效 (Honor Dynamics) */
     @keyframes honor-pulse {
       0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }
       70% { box-shadow: 0 0 0 25px rgba(251, 191, 36, 0); }
@@ -122,14 +121,13 @@
       animation: honor-pulse 2s infinite;
     }
 
-    /* 合理的區塊間距 */
     .section-padding { padding-top: 160px; padding-bottom: 160px; }
     @media (max-width: 768px) { .section-padding { padding-top: 100px; padding-bottom: 100px; } }
   </style>
 </head>
 <body class="antialiased overflow-x-hidden blueprint-grid">
   
-  <!-- 🧭 導覽列 (Decision Layer) -->
+  <!-- 🧭 導覽列 -->
   <nav class="fixed top-0 w-full z-50 bg-[#0b1121]/95 backdrop-blur-2xl border-b border-slate-700/50">
     <div class="container mx-auto max-w-7xl px-8 h-20 flex justify-between items-center">
       <a href="#hero" class="group text-white font-black tracking-tighter text-2xl hover:text-blue-400 transition-all">
@@ -155,12 +153,13 @@
               Infrastructure Resilience Lead
             </div>
             <h1 class="text-5xl md:text-7xl font-black text-white leading-[1.1] mb-10 tracking-tight">
-              構築極致韌性 <br>
-              <span class="gradient-text">數位城市治理</span>
+              打造穩健的數位架構 <br>
+              <span class="gradient-text">在複雜中建立穩定秩序</span>
             </h1>
             <div class="max-w-3xl">
+              <!-- 修正處：將「精準管控商業風險」優化為「轉化為可持續的商業穩定力」，提升戰略價值感 -->
               <p class="text-xl md:text-2xl text-slate-200 mb-8 leading-snug font-light">
-                不只是解決故障，而是透過架構定義規避商業風險。
+                不只是解決故障，而是透過架構定義，將技術韌性轉化為長期的「商業穩定力」。
               </p>
               <span class="text-white font-bold italic border-l-4 border-blue-500 pl-6 ml-1 mb-16 block text-lg md:text-xl leading-relaxed">
                 「將權力還給決策者，專業留給架構師。在混沌中定義長期穩定。」
@@ -177,7 +176,7 @@
               <div class="stat-card">
                 <div class="text-5xl font-black text-white mb-3 tracking-tight keep-together">10+ <span class="text-2xl font-bold text-slate-400">項</span></div>
                 <div class="text-sm text-blue-400 uppercase tracking-widest tech-font font-black mb-2">異質架構技術棧</div>
-                <p class="text-sm text-slate-300 leading-relaxed font-medium">精專跨廠商系統整合，打破單一品牌依賴，極大化基礎設施調度彈性。</p>
+                <p class="text-sm text-slate-300 leading-relaxed font-medium">專精跨廠商系統整合，打破單一品牌依賴，極大化基礎設施調度彈性。</p>
               </div>
               <div class="stat-card">
                 <div class="text-5xl font-black text-white mb-3 tracking-tight keep-together">14+ <span class="text-2xl font-bold text-slate-400">年</span></div>
@@ -242,7 +241,7 @@
       </div>
     </section>
 
-    <!-- 💡 3. 核心專案實踐 (精準化修正) -->
+    <!-- 💡 3. 核心專案實踐 (質量化優化) -->
     <section id="projects" class="section-padding px-8">
       <div class="container mx-auto max-w-7xl">
         <h2 class="text-4xl md:text-6xl font-black text-white mb-24 text-center">核心專案實踐</h2>
@@ -275,7 +274,7 @@
             </div>
           </div>
           
-          <!-- Project 2: 整合了網段規劃、廠商協調與裝機測試 -->
+          <!-- Project 2 -->
           <div class="glass-card p-12 rounded-[40px] border-l-[12px] border-l-emerald-500 shadow-xl">
             <div class="flex flex-wrap justify-between items-start mb-10 gap-8">
               <h3 class="text-3xl md:text-4xl font-black text-white tracking-tight">跨國級雲地戰略介接與數據回遷</h3>
@@ -292,14 +291,13 @@
                 <div class="text-sm font-black text-emerald-400 mb-5 uppercase tracking-[0.2em] flex items-center gap-3">
                   <span class="w-8 h-px bg-emerald-500"></span> // Strategic Action
                 </div>
-                <!-- 終極整合描述：涵蓋網段規劃、廠商協調與裝機驗證 -->
                 <p class="text-slate-200 font-medium">主導雲地全域網段規劃與互連架構設計。建置資安閘道 HA 叢集，並跨部門協調主機廠商與 ISP 實施跨國 BGP 動態路由調度及端到端 (E2E) 裝機驗證。</p>
               </div>
               <div class="bg-emerald-900/30 p-8 rounded-3xl border border-emerald-400/30 text-white transform hover:scale-[1.02] transition-all">
                 <div class="text-sm font-black text-emerald-300 mb-5 uppercase tracking-[0.2em] flex items-center gap-3">
                   <span class="w-8 h-px bg-emerald-300"></span> // Result & Value
                 </div>
-                <p class="text-xl font-bold leading-snug">圓滿支持萬級併發流量，達成地端出口零延遲存取。活動結束後順利執行 100% 數據回遷落實數據主權。</p>
+                <p class="text-xl font-bold穩定度提升 300%。">圓滿支持萬級併發流量，達成地端出口零延遲存取。活動結束後順利執行 100% 數據回遷落實數據主權。</p>
               </div>
             </div>
           </div>
@@ -307,18 +305,16 @@
       </div>
     </section>
 
-    <!-- 📜 4. 經歷與專業認證 (Senior Evolution with Strategic Foundation) -->
+    <!-- 📜 4. 經歷與專業認證 -->
     <section id="experience" class="section-padding px-8 bg-slate-900/30">
       <div class="container mx-auto max-w-7xl">
         <div class="grid lg:grid-cols-2 gap-24">
           
-          <!-- Experience Section -->
           <div>
             <h3 class="text-3xl font-black text-white mb-20 flex items-center gap-6">
               <i class="fas fa-history text-blue-500 text-3xl"></i> 職涯進化軌跡
             </h3>
             <div class="space-y-16 relative pl-12 border-l-4 border-slate-700">
-              <!-- Job 1 -->
               <div class="relative pb-6">
                 <div class="absolute -left-[58px] top-0 w-6 h-6 rounded-full bg-blue-500 ring-8 ring-blue-500/15 shadow-[0_0_20px_rgba(59,130,246,0.5)]"></div>
                 <div class="mb-4 flex justify-between items-baseline">
@@ -329,19 +325,16 @@
                 <p class="text-slate-200 text-base leading-relaxed font-medium">主導自動化核心網路資源管理 (DDI) 整合與 WAF 治理政策實施。透過技術適配性分析優化長期防禦成本與轉型效能。</p>
               </div>
 
-              <!-- Job 2: 修正為「資安合規合作夥伴」 -->
               <div class="relative pb-6">
                 <div class="absolute -left-[58px] top-0 w-6 h-6 rounded-full bg-slate-500 ring-8 ring-slate-900"></div>
                 <div class="mb-4 flex justify-between items-baseline">
                   <span class="text-sm tech-font text-slate-400 font-black uppercase tracking-widest">2018 - 2019 | Compliance Governance</span>
                 </div>
                 <h4 class="text-2xl font-bold text-white mb-2">資安工程師</h4>
-                <!-- 修正點：使用更專業且符合事實的合作關係描述 -->
                 <p class="text-slate-500 text-lg mb-4 font-bold uppercase tracking-tighter">政府部門資安合規合作夥伴 | 國家級行政機關</p>
                 <p class="text-slate-200 text-base leading-relaxed font-medium">實施 ISMS 合規戰略。負責大規模分支機構之邊界安全優化，將合規要求轉化為可持續的組織防禦力。</p>
               </div>
 
-              <!-- Job 3 -->
               <div class="relative pb-6">
                 <div class="absolute -left-[58px] top-0 w-6 h-6 rounded-full bg-slate-600 ring-8 ring-slate-900"></div>
                 <div class="mb-4 flex justify-between items-baseline">
@@ -352,7 +345,6 @@
                 <p class="text-slate-200 text-base leading-relaxed font-medium">執行電信級骨幹核心路由器之 MOP 變更管理。確保關鍵設施在受控維護期間維持極致的高可用性。</p>
               </div>
 
-              <!-- Job 4 -->
               <div class="relative">
                 <div class="absolute -left-[58px] top-0 w-6 h-6 rounded-full bg-slate-700 ring-8 ring-slate-900"></div>
                 <div class="mb-4 flex justify-between items-baseline">
@@ -364,13 +356,12 @@
                   「這是我職涯中最重要的養分階段。」
                 </p>
                 <p class="text-slate-300 text-base leading-relaxed mt-4 font-medium">
-                  於校園萬級使用者環境中磨練協定基礎。發揮工業設計背景，運用 AutoCAD 規劃高效率機房拓樸與冷熱動線，定義了對設施物理穩定性的極致要求。
+                  於校園萬級使用者環境中磨練協定基礎。發揮工業設計背景，運用 AutoCAD 規劃高效率機房拓樸與動線，定義了對設施物理穩定性的極致要求。
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- 🏛️ 專業認證矩陣 -->
           <div>
             <h3 class="text-3xl font-black text-white mb-20 flex items-center gap-6">
               <i class="fas fa-award text-amber-500 text-3xl"></i> 專業認證矩陣
@@ -443,7 +434,6 @@
                 </div>
               </div>
 
-              <!-- 🏆 榮耀獎勵區塊 (Ultimate Recognition) -->
               <div class="mt-20 p-12 rounded-[32px] honor-award-box shadow-2xl flex items-center gap-10">
                 <div class="w-28 h-28 rounded-full honor-trophy flex items-center justify-center shrink-0 border-4 border-white/30">
                   <i class="fas fa-trophy text-6xl"></i>
@@ -465,7 +455,7 @@
        <div class="container mx-auto max-w-4xl">
          <h3 class="text-6xl md:text-8xl font-black text-white mb-16 tracking-tighter text-shadow-xl">啟動評估對接</h3>
          <p class="text-2xl md:text-3xl text-slate-100 mb-24 font-medium leading-relaxed max-w-5xl mx-auto">
-             不論是龐大的異質網路規劃，還是資安治理的戰略挑戰，<span class="keep-together">我希望能有機會與您進一步交流，探討如何協助貴司建構數位韌性。</span>
+             不論是龐大的異質網路規劃，還是資安治理的戰略挑戰，<span class="keep-together">我希望能有機會與您進一步交流，探討如何協助貴公司建構數位韌性。</span>
          </p>
          <div class="flex flex-wrap justify-center gap-10">
            <a href="mailto:louis@rongcingchen.com" class="btn-primary flex items-center gap-6 px-14 py-6 bg-blue-600 hover:bg-blue-500 text-white text-2xl font-black rounded-2xl transition-all shadow-xl shadow-blue-600/40 transform hover:-translate-y-2">
@@ -485,9 +475,9 @@
   <footer class="w-full py-24 bg-[#020617] border-t border-slate-800 text-center">
     <div class="container mx-auto px-8">
       <div class="mb-16">
-        <p class="text-slate-400 tech-font uppercase tracking-[0.4em] text-xs font-black mb-8 opacity-80">Architect's Creed</p>
+        <p class="text-slate-400 tech-font uppercase tracking-[0.4em] text-xs font-black mb-8 opacity-80">Infrastructure Philosophy</p>
         <h4 class="text-3xl md:text-5xl font-black text-white leading-tight italic tracking-tighter">
-          「卓越源於對秩序的極致追求。」
+          「於複雜中定義秩序，於穩定中成就卓越。」
         </h4>
         <p class="text-slate-300 text-xl mt-8 font-bold">
           RONG CING CHEN | Infrastructure Resilience Architect
